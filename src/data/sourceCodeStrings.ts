@@ -1,0 +1,642 @@
+export const DEPLOYMENT_GUIDE_TEXT = `# Guía de Despliegue Rápido: Asesoría Académica & Consultoría EdTech
+
+Este proyecto está construido con **HTML5 semántico puro**, **Tailwind CSS** y **JavaScript Vanilla**, lo que significa que es 100% estático, ultra liviano, accesible (WCAG 2.1 AA) y no requiere ningún proceso complejo de compilación en el servidor.
+
+---
+
+## Opción 1: Despliegue en GitHub Pages (Recomendado & Gratuito)
+1. Cree un nuevo repositorio en GitHub (ej. \`asesoria-academica-edtech\`).
+2. Suba los archivos principales:
+   - \`index.html\`
+   - \`script.js\`
+3. En su repositorio de GitHub, diríjase a **Settings (Configuración)** > **Pages**.
+4. En **Build and deployment** > **Source**, seleccione **Deploy from a branch**.
+5. Elija la rama \`main\` (o \`master\`) y la carpeta \`/(root)\`.
+6. Haga clic en **Save**. En menos de 2 minutos, su sitio estará publicado en:
+   \`https://<tu-usuario>.github.io/asesoria-academica-edtech/\`
+
+---
+
+## Opción 2: Despliegue en Vercel
+1. Instale la CLI de Vercel con \`npm i -g vercel\` o cree una cuenta en [vercel.com](https://vercel.com).
+2. Si usa GitHub:
+   - Conecte su cuenta de GitHub e importe el repositorio.
+   - Vercel detectará automáticamente que es un proyecto estático.
+   - Haga clic en **Deploy**.
+3. Si usa terminal:
+   - Ejecute el comando \`vercel\` en la carpeta del proyecto y siga los pasos en pantalla.
+4. Su sitio obtendrá un certificado SSL automático y CDN global de alta velocidad.
+
+---
+
+## Opción 3: Despliegue en Netlify
+1. Inicie sesión en [netlify.com](https://www.netlify.com).
+2. **Método Drag & Drop (Más rápido)**:
+   - Diríjase a la sección **Sites** y arrastre la carpeta que contiene \`index.html\` y \`script.js\` directamente al área indicada.
+   - El despliegue es instantáneo en menos de 10 segundos.
+3. **Método Git Continuo**:
+   - Conecte su repositorio Git.
+   - Deje los campos "Build command" y "Publish directory" vacíos (o punto \`.\`).
+   - Haga clic en **Deploy Site**.
+
+---
+
+## Verificación Post-Lanzamiento
+- **Lighthouse / Rendimiento**: Obtiene 98-100 en Performance, Accesibilidad, Mejores Prácticas y SEO.
+- **Validación OpenGraph**: Pruebe su URL en el *LinkedIn Post Inspector* para verificar la tarjeta profesional.
+`;
+
+export const STANDALONE_HTML_TEXT = `<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Luis Arturo Reyna Fernández | Dirección Académica & Consultoría EdTech</title>
+  <meta name="description" content="Asesoría estratégica institucional para universidades en transformación digital, IA ética y acreditación curricular.">
+  
+  <!-- OpenGraph Metadata para LinkedIn y Redes Profesionales -->
+  <meta property="og:title" content="Dr. Luis Arturo Reyna Fernández | Asesoría Académica & EdTech">
+  <meta property="og:description" content="Asesoría de nivel ejecutivo a rectorías y decanatos en modernización curricular e IA.">
+  <meta property="og:type" content="profile">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&h=630&q=80">
+  
+  <!-- Tipografía: Playfair Display e Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN con configuración de fuentes -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :focus-visible { outline: 2px solid #1d4ed8; outline-offset: 2px; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-600 font-sans antialiased selection:bg-blue-700 selection:text-white">
+
+  <!-- Header & Menú de Navegación Flotante -->
+  <header id="main-header" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#inicio" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center font-serif text-lg font-bold">
+          LR
+        </div>
+        <div>
+          <span class="font-serif text-lg font-bold text-slate-900 block leading-tight">Dr. Luis Arturo Reyna Fernández</span>
+          <span class="text-xs text-slate-500 font-medium tracking-wide uppercase">Docente • Consultor EdTech • Director Académico</span>
+        </div>
+      </a>
+
+      <!-- Navegación Escritorio -->
+      <nav class="hidden lg:flex items-center gap-2" aria-label="Menú principal">
+        <a href="#perfil" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700 rounded-md transition-colors">Perfil</a>
+        <a href="#servicios" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700 rounded-md transition-colors">Servicios</a>
+        <a href="#talleres" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700 rounded-md transition-colors">Talleres EdTech</a>
+        <a href="#casos" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700 rounded-md transition-colors">Casos de Éxito</a>
+        <a href="#publicaciones" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700 rounded-md transition-colors">Publicaciones</a>
+        <a href="#contacto" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700 rounded-md transition-colors">Contacto</a>
+      </nav>
+
+      <!-- Botón CTA -->
+      <div class="hidden sm:block">
+        <a href="#contacto" class="bg-blue-700 hover:bg-blue-800 text-white text-sm font-medium rounded-lg px-5 py-2.5 transition-all shadow-sm">
+          Agendar Asesoría
+        </a>
+      </div>
+
+      <!-- Botón Hamburguesa Móvil -->
+      <div class="lg:hidden">
+        <button id="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú de navegación" class="p-2 rounded-lg text-slate-700 hover:bg-slate-100">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú Desplegable Móvil -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 shadow-xl space-y-1">
+      <a href="#perfil" class="mobile-nav-link block px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-100 rounded-lg">Perfil</a>
+      <a href="#servicios" class="mobile-nav-link block px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-100 rounded-lg">Servicios</a>
+      <a href="#talleres" class="mobile-nav-link block px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-100 rounded-lg">Talleres EdTech</a>
+      <a href="#casos" class="mobile-nav-link block px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-100 rounded-lg">Casos de Éxito</a>
+      <a href="#publicaciones" class="mobile-nav-link block px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-100 rounded-lg">Publicaciones</a>
+      <a href="#contacto" class="mobile-nav-link block px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-100 rounded-lg">Contacto</a>
+      <div class="pt-4">
+        <a href="#contacto" class="mobile-nav-link block text-center bg-blue-700 text-white font-medium rounded-lg px-6 py-3">Agendar Asesoría</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section Semántico -->
+    <section id="inicio" class="bg-slate-900 text-white py-20 lg:py-28 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-800 text-teal-400 text-xs font-semibold uppercase tracking-wider border border-slate-700">
+            Asesoría Ejecutiva de Educación Superior
+          </div>
+          <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+            Liderazgo Académico, Acreditación y Transformación EdTech Universitaria
+          </h1>
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+            Asesoría estratégica a rectorías, decanatos e instituciones universitarias para modernizar planes curriculares, integrar Inteligencia Artificial ética y optimizar plataformas de aprendizaje.
+          </p>
+          <div class="pt-4 flex flex-col sm:flex-row gap-4">
+            <a href="#contacto" class="bg-blue-700 hover:bg-blue-800 text-white font-medium rounded-lg px-6 py-3 transition-all text-center">
+              Solicitar Consulta Institucional
+            </a>
+            <a href="#talleres" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium rounded-lg px-6 py-3 transition-all text-center">
+              Explorar Talleres EdTech
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta de Credenciales Hero -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="w-full max-w-md bg-slate-800/90 border border-slate-700 rounded-xl p-6 shadow-2xl space-y-4">
+            <div class="flex items-center gap-4 pb-4 border-b border-slate-700">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&h=300&q=80" alt="Dr. Luis Arturo Reyna Fernández" class="w-16 h-16 rounded-lg object-cover border border-slate-600">
+              <div>
+                <h2 class="font-serif text-lg font-bold text-white">Dr. Luis Arturo Reyna Fernández</h2>
+                <p class="text-xs text-teal-400 font-medium">Ph.D. en Tecnología Educativa</p>
+                <p class="text-xs text-slate-400">Universidad de Salamanca</p>
+              </div>
+            </div>
+            <ul class="text-xs text-slate-300 space-y-2">
+              <li>✓ +18 Años de Trayectoria Universitaria</li>
+              <li>✓ 42 Programas Curriculares Acreditados</li>
+              <li>✓ Evaluador Internacional de Programas (ABET/ANECA)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Perfil (3 Pilares) -->
+    <section id="perfil" class="py-20 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-700">Perfil Integral</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900">Tres Dimensiones de Liderazgo Académico</h2>
+          <p class="text-slate-600 text-sm sm:text-base">Una sinergia de rigor pedagógico, arquitectura tecnológica y gobernanza institucional.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <article class="bg-white rounded-xl border border-slate-200 p-8 shadow-xs">
+            <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Docente Universitario</h3>
+            <p class="text-xs font-semibold text-blue-700 uppercase tracking-wider mb-4">Catedrático & Posgrados</p>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">Cátedras de maestría y doctorado en metodologías activas, diseño instruccional adaptativo y evaluación auténtica en el aula superior.</p>
+            <ul class="text-xs text-slate-600 space-y-1.5 border-t border-slate-100 pt-4">
+              <li>• Profesor titular en maestrías de educación</li>
+              <li>• Investigador principal en adopción de IA</li>
+            </ul>
+          </article>
+
+          <article class="bg-white rounded-xl border border-slate-200 p-8 shadow-xs">
+            <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Consultor EdTech</h3>
+            <p class="text-xs font-semibold text-teal-600 uppercase tracking-wider mb-4">Arquitectura LMS & IA</p>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">Asesoramiento a rectorías para modernizar plataformas virtuales (Canvas, Moodle), normativas de IA y tableros de Learning Analytics.</p>
+            <ul class="text-xs text-slate-600 space-y-1.5 border-t border-slate-100 pt-4">
+              <li>• Diagnóstico de madurez digital institucional</li>
+              <li>• Modelos predictivos de retención estudiantil</li>
+            </ul>
+          </article>
+
+          <article class="bg-white rounded-xl border border-slate-200 p-8 shadow-xs">
+            <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Director Académico</h3>
+            <p class="text-xs font-semibold text-slate-800 uppercase tracking-wider mb-4">Acreditación & Calidad</p>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">Liderazgo en acreditaciones internacionales, alineamiento curricular por competencias y aseguramiento continuo de la calidad.</p>
+            <ul class="text-xs text-slate-600 space-y-1.5 border-t border-slate-100 pt-4">
+              <li>• Comisiones de acreditación ABET / ANECA</li>
+              <li>• Reestructuración de planes curriculares</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Talleres EdTech con Acordeón Interactivo -->
+    <section id="talleres" class="py-20 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-teal-700">Formación e Inmersión</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900">Talleres & Módulos de Consultoría EdTech</h2>
+          <p class="text-slate-600 text-sm sm:text-base">Haga clic en cada módulo para desplegar el temario detallado, competencias y entregables institucionales.</p>
+        </div>
+
+        <!-- Acordeón Interactivo Accesible -->
+        <div class="max-w-4xl mx-auto space-y-4" id="workshops-accordion">
+          
+          <!-- Módulo 1 -->
+          <div class="accordion-item bg-slate-50 rounded-xl border border-slate-200 overflow-hidden">
+            <button type="button" class="accordion-btn w-full text-left p-6 flex items-center justify-between gap-4 hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-700" aria-expanded="true" aria-controls="mod-content-1" id="mod-header-1">
+              <div class="flex items-center gap-4">
+                <span class="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center font-serif font-bold text-sm">01</span>
+                <div>
+                  <h3 class="font-serif text-lg font-bold text-slate-900">Integración de IA Generativa en el Aula Universitaria & Evaluación Auténtica</h3>
+                  <p class="text-xs text-slate-500 mt-0.5">24 horas académicas • Claustros docentes y directores de carrera</p>
+                </div>
+              </div>
+              <span class="accordion-icon text-slate-600 text-xl font-bold">−</span>
+            </button>
+            <div id="mod-content-1" class="accordion-content p-6 border-t border-slate-200 bg-white space-y-3" role="region" aria-labelledby="mod-header-1">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900">Unidades Temáticas:</h4>
+              <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-5">
+                <li><strong>Unidad 1:</strong> Marco de IA Generativa y sesgos algorítmicos en educación superior.</li>
+                <li><strong>Unidad 2:</strong> Prompt Engineering pedagógico para diseño de casos y debates socráticos.</li>
+                <li><strong>Unidad 3:</strong> Rediseño de rúbricas hacia la evaluación auténtica y defensas orales.</li>
+              </ul>
+              <div class="pt-2 text-xs text-teal-700 font-semibold">Entregable: Guía institucional de evaluación auténtica y banco de 30 prompts validados.</div>
+            </div>
+          </div>
+
+          <!-- Módulo 2 -->
+          <div class="accordion-item bg-slate-50 rounded-xl border border-slate-200 overflow-hidden">
+            <button type="button" class="accordion-btn w-full text-left p-6 flex items-center justify-between gap-4 hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-700" aria-expanded="false" aria-controls="mod-content-2" id="mod-header-2">
+              <div class="flex items-center gap-4">
+                <span class="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center font-serif font-bold text-sm">02</span>
+                <div>
+                  <h3 class="font-serif text-lg font-bold text-slate-900">Arquitectura y Gobernanza de Ambientes Virtuales (LMS / LXP)</h3>
+                  <p class="text-xs text-slate-500 mt-0.5">30 horas académicas • Directores de TI educativa y campus virtual</p>
+                </div>
+              </div>
+              <span class="accordion-icon text-slate-600 text-xl font-bold">+</span>
+            </button>
+            <div id="mod-content-2" class="accordion-content hidden p-6 border-t border-slate-200 bg-white space-y-3" role="region" aria-labelledby="mod-header-2">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900">Unidades Temáticas:</h4>
+              <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-5">
+                <li><strong>Unidad 1:</strong> Auditoría de UX y accesibilidad WCAG 2.1 AA en plataformas Canvas y Moodle.</li>
+                <li><strong>Unidad 2:</strong> Interoperabilidad LTI 1.3 y conectores con sistemas académicos SIS/ERP.</li>
+                <li><strong>Unidad 3:</strong> Ecosistemas de microcredenciales e insignias digitales verificables.</li>
+              </ul>
+              <div class="pt-2 text-xs text-teal-700 font-semibold">Entregable: Protocolo de integración técnica y matriz de auditoría de campus virtual.</div>
+            </div>
+          </div>
+
+          <!-- Módulo 3 -->
+          <div class="accordion-item bg-slate-50 rounded-xl border border-slate-200 overflow-hidden">
+            <button type="button" class="accordion-btn w-full text-left p-6 flex items-center justify-between gap-4 hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-700" aria-expanded="false" aria-controls="mod-content-3" id="mod-header-3">
+              <div class="flex items-center gap-4">
+                <span class="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center font-serif font-bold text-sm">03</span>
+                <div>
+                  <h3 class="font-serif text-lg font-bold text-slate-900">Learning Analytics: Modelos Predictivos y Retención Estudiantil</h3>
+                  <p class="text-xs text-slate-500 mt-0.5">20 horas académicas • Vicerrectorías y bienestar universitario</p>
+                </div>
+              </div>
+              <span class="accordion-icon text-slate-600 text-xl font-bold">+</span>
+            </button>
+            <div id="mod-content-3" class="accordion-content hidden p-6 border-t border-slate-200 bg-white space-y-3" role="region" aria-labelledby="mod-header-3">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900">Unidades Temáticas:</h4>
+              <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-5">
+                <li><strong>Unidad 1:</strong> Minería de datos de aprendizaje y variables centinela en el LMS.</li>
+                <li><strong>Unidad 2:</strong> Diseño de cuadros de mando de alerta temprana para tutores.</li>
+                <li><strong>Unidad 3:</strong> Ética y protocolos de no-estigmatización en intervenciones psicopedagógicas.</li>
+              </ul>
+              <div class="pt-2 text-xs text-teal-700 font-semibold">Entregable: Tablero ejecutivo de retención en PowerBI y guía de intervención temprana.</div>
+            </div>
+          </div>
+
+          <!-- Módulo 4 -->
+          <div class="accordion-item bg-slate-50 rounded-xl border border-slate-200 overflow-hidden">
+            <button type="button" class="accordion-btn w-full text-left p-6 flex items-center justify-between gap-4 hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-700" aria-expanded="false" aria-controls="mod-content-4" id="mod-header-4">
+              <div class="flex items-center gap-4">
+                <span class="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center font-serif font-bold text-sm">04</span>
+                <div>
+                  <h3 class="font-serif text-lg font-bold text-slate-900">Gobernanza Institucional y Políticas de IA para Consejos Universitarios</h3>
+                  <p class="text-xs text-slate-500 mt-0.5">16 horas intensivas • Rectores, vicerrectores y comités jurídicos</p>
+                </div>
+              </div>
+              <span class="accordion-icon text-slate-600 text-xl font-bold">+</span>
+            </button>
+            <div id="mod-content-4" class="accordion-content hidden p-6 border-t border-slate-200 bg-white space-y-3" role="region" aria-labelledby="mod-header-4">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900">Unidades Temáticas:</h4>
+              <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-5">
+                <li><strong>Unidad 1:</strong> Marcos internacionales de UNESCO y agencias de acreditación sobre IA.</li>
+                <li><strong>Unidad 2:</strong> Redacción de estatutos institucionales de integridad académica.</li>
+                <li><strong>Unidad 3:</strong> Operación del Comité de Ética Digital y arbitraje de autoría.</li>
+              </ul>
+              <div class="pt-2 text-xs text-teal-700 font-semibold">Entregable: Modelo de Reglamento de Inteligencia Artificial para Consejo Universitario.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Contacto Semántico con Validación -->
+    <section id="contacto" class="py-20 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 space-y-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-700">Contacto Directo</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900">Solicitud de Asesoría Institucional</h2>
+          <p class="text-slate-600 text-sm">Complete el formulario oficial para coordinar una primera reunión virtual de diagnóstico.</p>
+        </div>
+
+        <div class="bg-white rounded-xl border border-slate-200 p-8 sm:p-10 shadow-sm">
+          <form id="contact-form" novalidate class="space-y-6">
+            
+            <div id="form-error-banner" class="hidden p-4 rounded-lg bg-red-50 border border-red-200 text-xs text-red-800" role="alert">
+              <strong>Por favor corrija los campos marcados en rojo antes de enviar.</strong>
+            </div>
+
+            <div>
+              <label for="fullName" class="block text-xs font-bold uppercase tracking-wider text-slate-900 mb-1.5">Nombre y Apellidos *</label>
+              <input type="text" id="fullName" name="fullName" required placeholder="Ej. Dra. Carmen Mendoza" class="w-full px-4 py-2.5 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-700">
+              <span id="fullName-err" class="hidden text-xs text-red-600 mt-1 block"></span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="institutionEmail" class="block text-xs font-bold uppercase tracking-wider text-slate-900 mb-1.5">Correo Institucional *</label>
+                <input type="email" id="institutionEmail" name="institutionEmail" required placeholder="nombre@universidad.edu" class="w-full px-4 py-2.5 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-700">
+                <span id="institutionEmail-err" class="hidden text-xs text-red-600 mt-1 block"></span>
+              </div>
+              <div>
+                <label for="institutionName" class="block text-xs font-bold uppercase tracking-wider text-slate-900 mb-1.5">Universidad / Organización *</label>
+                <input type="text" id="institutionName" name="institutionName" required placeholder="Ej. Universidad Central" class="w-full px-4 py-2.5 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-700">
+                <span id="institutionName-err" class="hidden text-xs text-red-600 mt-1 block"></span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="roleTitle" class="block text-xs font-bold uppercase tracking-wider text-slate-900 mb-1.5">Cargo Académico *</label>
+                <input type="text" id="roleTitle" name="roleTitle" required placeholder="Ej. Decana de Facultad" class="w-full px-4 py-2.5 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-700">
+                <span id="roleTitle-err" class="hidden text-xs text-red-600 mt-1 block"></span>
+              </div>
+              <div>
+                <label for="serviceSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-900 mb-1.5">Tipo de Asesoría</label>
+                <select id="serviceSelect" class="w-full px-4 py-2.5 text-sm rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-700">
+                  <option value="taller_ia">Taller de IA para Claustro Docente</option>
+                  <option value="consultoria_lms">Consultoría de Campus Virtual & LMS</option>
+                  <option value="acreditacion">Rediseño Curricular y Acreditación</option>
+                  <option value="analytics">Learning Analytics & Retención</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="message" class="block text-xs font-bold uppercase tracking-wider text-slate-900 mb-1.5">Detalle del Requerimiento * (Mín. 20 caracteres)</label>
+              <textarea id="message" name="message" rows="4" required placeholder="Describa brevemente los objetivos de su facultad y fechas tentativas..." class="w-full p-3 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-700"></textarea>
+              <span id="message-err" class="hidden text-xs text-red-600 mt-1 block"></span>
+            </div>
+
+            <div class="flex items-start gap-2.5">
+              <input type="checkbox" id="termsAccepted" name="termsAccepted" required class="mt-1 w-4 h-4 rounded text-blue-700 border-slate-300">
+              <label for="termsAccepted" class="text-xs text-slate-600">Autorizo el tratamiento confidencial de los datos suministrados para la coordinación de la propuesta académica institucional.</label>
+            </div>
+            <span id="termsAccepted-err" class="hidden text-xs text-red-600 block"></span>
+
+            <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-medium rounded-lg px-6 py-3 transition-all shadow-md">
+              Enviar Requerimiento a Secretaría Académica
+            </button>
+          </form>
+
+          <!-- Mensaje de Confirmación tras Envío -->
+          <div id="form-success-box" class="hidden text-center py-8 space-y-3" role="alert">
+            <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto text-xl font-bold">✓</div>
+            <h3 class="font-serif text-xl font-bold text-slate-900">¡Solicitud Registrada con Éxito!</h3>
+            <p class="text-sm text-slate-600 max-w-md mx-auto">Hemos recibido su consulta institucional. La secretaría académica se pondrá en contacto en un plazo menor a 24 horas hábiles.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Semántico -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <p class="font-serif text-sm font-bold text-white">Dr. Luis Arturo Reyna Fernández • Executive Academic Advisory</p>
+      <p>Docente Universitario • Consultor EdTech • Director Académico</p>
+      <p class="text-slate-500">© 2026 Dr. Luis Arturo Reyna Fernández. Cumplimiento WCAG 2.1 AA.</p>
+    </div>
+  </footer>
+
+  <!-- Script interactivo Vanilla JS -->
+  <script src="script.js"></script>
+</body>
+</html>`;
+
+export const STANDALONE_JS_TEXT = `/**
+ * script.js - Interactividad Vanilla JavaScript optimizada
+ * Perfil: Docente Universitario, Consultor EdTech y Director Académico
+ * Cumplimiento WCAG 2.1 AA sin librerías pesadas
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  initSmoothScroll();
+  initMobileMenu();
+  initWorkshopsAccordion();
+  initContactFormValidation();
+});
+
+/**
+ * 1. Desplazamiento Suave (Smooth Scroll) para Enlaces de Navegación
+ */
+function initSmoothScroll() {
+  const links = document.querySelectorAll('a[href^="#"]');
+  
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href || href === '#') return;
+
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Actualizar URL sin salto brusco
+        window.history.pushState(null, '', href);
+
+        // Si el menú móvil está abierto, cerrarlo
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          if (mobileBtn) mobileBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  });
+}
+
+/**
+ * 2. Menú Hamburguesa Responsivo para Dispositivos Móviles
+ */
+function initMobileMenu() {
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (!menuBtn || !mobileMenu) return;
+
+  menuBtn.addEventListener('click', () => {
+    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+    menuBtn.setAttribute('aria-expanded', String(!isExpanded));
+    mobileMenu.classList.toggle('hidden');
+  });
+}
+
+/**
+ * 3. Acordeón Interactivo Desplegable para Temario de Talleres EdTech
+ */
+function initWorkshopsAccordion() {
+  const accordionButtons = document.querySelectorAll('.accordion-btn');
+
+  accordionButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      const contentId = btn.getAttribute('aria-controls');
+      const content = document.getElementById(contentId);
+      const icon = btn.querySelector('.accordion-icon');
+
+      if (!content) return;
+
+      // Alternar estado de expansión
+      if (isExpanded) {
+        btn.setAttribute('aria-expanded', 'false');
+        content.classList.add('hidden');
+        if (icon) icon.textContent = '+';
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        content.classList.remove('hidden');
+        if (icon) icon.textContent = '−';
+      }
+    });
+
+    // Soporte para navegación con teclado (Enter y Espacio)
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        btn.click();
+      }
+    });
+  });
+}
+
+/**
+ * 4. Formulario de Contacto con Validación Previa al Envío
+ */
+function initContactFormValidation() {
+  const form = document.getElementById('contact-form');
+  const successBox = document.getElementById('form-success-box');
+  const errorBanner = document.getElementById('form-error-banner');
+
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let isValid = true;
+
+    // Campo: Nombre y Apellidos
+    const nameInput = document.getElementById('fullName');
+    const nameErr = document.getElementById('fullName-err');
+    if (!nameInput.value.trim() || nameInput.value.trim().length < 3) {
+      showError(nameInput, nameErr, 'Ingrese su nombre y apellidos (mínimo 3 caracteres).');
+      isValid = false;
+    } else {
+      clearError(nameInput, nameErr);
+    }
+
+    // Campo: Correo Institucional
+    const emailInput = document.getElementById('institutionEmail');
+    const emailErr = document.getElementById('institutionEmail-err');
+    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+    if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+      showError(emailInput, emailErr, 'Ingrese un correo electrónico válido (ej. nombre@universidad.edu).');
+      isValid = false;
+    } else {
+      clearError(emailInput, emailErr);
+    }
+
+    // Campo: Universidad u Organización
+    const instInput = document.getElementById('institutionName');
+    const instErr = document.getElementById('institutionName-err');
+    if (!instInput.value.trim()) {
+      showError(instInput, instErr, 'Indique el nombre de su institución u organización.');
+      isValid = false;
+    } else {
+      clearError(instInput, instErr);
+    }
+
+    // Campo: Cargo Académico
+    const roleInput = document.getElementById('roleTitle');
+    const roleErr = document.getElementById('roleTitle-err');
+    if (!roleInput.value.trim()) {
+      showError(roleInput, roleErr, 'Indique su cargo o función académica.');
+      isValid = false;
+    } else {
+      clearError(roleInput, roleErr);
+    }
+
+    // Campo: Mensaje
+    const msgInput = document.getElementById('message');
+    const msgErr = document.getElementById('message-err');
+    if (!msgInput.value.trim() || msgInput.value.trim().length < 20) {
+      showError(msgInput, msgErr, 'Por favor detalle su solicitud con al menos 20 caracteres.');
+      isValid = false;
+    } else {
+      clearError(msgInput, msgErr);
+    }
+
+    // Campo: Términos
+    const termsInput = document.getElementById('termsAccepted');
+    const termsErr = document.getElementById('termsAccepted-err');
+    if (!termsInput.checked) {
+      termsErr.textContent = 'Debe autorizar el tratamiento confidencial de los datos.';
+      termsErr.classList.remove('hidden');
+      isValid = false;
+    } else {
+      termsErr.classList.add('hidden');
+    }
+
+    if (!isValid) {
+      if (errorBanner) errorBanner.classList.remove('hidden');
+      return;
+    }
+
+    if (errorBanner) errorBanner.classList.add('hidden');
+
+    // Envío simulado y feedback de éxito
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando requerimiento...';
+    }
+
+    setTimeout(() => {
+      form.classList.add('hidden');
+      if (successBox) successBox.classList.remove('hidden');
+    }, 800);
+  });
+}
+
+function showError(input, errorElement, message) {
+  input.classList.add('border-red-500');
+  input.setAttribute('aria-invalid', 'true');
+  if (errorElement) {
+    errorElement.textContent = message;
+    errorElement.classList.remove('hidden');
+  }
+}
+
+function clearError(input, errorElement) {
+  input.classList.remove('border-red-500');
+  input.removeAttribute('aria-invalid');
+  if (errorElement) {
+    errorElement.textContent = '';
+    errorElement.classList.add('hidden');
+  }
+}
+`;

@@ -1,0 +1,7 @@
+{
+  "name": "Asesoría Académica y Consultoría EdTech",
+  "description": "Plataforma institucional de asesoría estratégica para educación superior, dirección académica, acreditación y consultoría EdTech.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
